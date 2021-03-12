@@ -1,9 +1,12 @@
-%h1 Listing recipes
+%h1 
+  Recipes:
+  = @recipes.count
 
 %table.table
   %thead
     %tr
       %th Description
+      %th User
       %th
       %th
       %th
@@ -12,6 +15,7 @@
     - @recipes.each do |recipe|
       %tr
         %td= recipe.description
+        %td= recipe.user
         %td= link_to 'Show', recipe
         %td= link_to 'Edit', edit_recipe_path(recipe)
         %td= link_to 'Destroy', recipe, method: :delete, data: { confirm: 'Are you sure?' }
