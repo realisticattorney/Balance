@@ -39,6 +39,11 @@ a, a:hover, a:focus {
   background: #53ABEB;
 }
 
+.btn-twitter {
+  background: #53ABEB;
+  color: white;
+}
+
 #sidebar .sidebar-header {
     padding: 20px;
     background: #223246;
@@ -79,4 +84,24 @@ ul ul a {
 
 .bg-twittergrey {
   background: #F5F6F8;
+}
+
+.rectangle-41 {
+    position: absolute;
+    width: 100px;
+    height: 4px;
+    left: 0px;
+    top: 40px;
+
+    background: #3D8AFF;
+}
+
+.rectangle-4 {
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    left: 0px;
+    top: 43px;
+
+    background: rgb(199, 199, 199);
 }

@@ -1,11 +1,8 @@
-%h1 
-  Recipes:
-  = @recipes.count
 %p
   = render 'layouts/messages'
 
-.card-columns
-  = render 'recipes/post_from_index'
+= render 'recipes/post_from_index'
+%br
 
 %table.table
   %thead
