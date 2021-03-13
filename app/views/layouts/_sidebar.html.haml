@@ -8,26 +8,18 @@
     %ul.list-unstyled.components
       %p Dummy Heading
       %li.active
-        %a.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "collapse", :href => "#homeSubmenu"} Home
-        %ul#homeSubmenu.collapse.list-unstyled
-          %li
-            %a{:href => "#"} Home 1
-          %li
-            %a{:href => "#"} Home 2
-          %li
-            %a{:href => "#"} Home 3
+        %a{:href => "recipes"}
+          .fa.fa-home 
+          Home
       %li
-        %a{:href => "#"} About
+        %a{:href => "#"} 
+          .fa.fa-at
+          Connect
       %li
-        %a.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "collapse", :href => "#pageSubmenu"} Pages
-        %ul#pageSubmenu.collapse.list-unstyled
-          %li
-            %a{:href => "#"} Page 1
-          %li
-            %a{:href => "#"} Page 2
-          %li
-            %a{:href => "#"} Page 3
+        %a{:href => "#"} 
+          .fa.fa-hashtag
+          Discover
       %li
-        %a{:href => "#"} Portfolio
-      %li
-        %a{:href => "#"} Contact
+        %a{:href => "#"} 
+          .fa.fa-user
+          Profile
