@@ -1,25 +1,8 @@
-%h1 
-  Recipes:
-  = @recipes.count
-
-%table.table
-  %thead
-    %tr
-      %th Description
-      %th User
-      %th
-      %th
-      %th
-
-  %tbody
-    - @recipes.each do |recipe|
-      %tr
-        %td= recipe.description
-        %td= recipe.user
-        %td= link_to 'Show', recipe
-        %td= link_to 'Edit', edit_recipe_path(recipe)
-        %td= link_to 'Destroy', recipe, method: :delete, data: { confirm: 'Are you sure?' }
-
-%br
-
-= link_to 'New Recipe', new_recipe_path, class: 'btn btn-primary'
+.container-fluid
+  .col-9
+    .row 
+      %h1 empty
+    .row
+      = render 'recipes/main'
+  .col-3.border.border-left-0.border-bottom-0.p-0
+    = render 'recipes/rightbar'

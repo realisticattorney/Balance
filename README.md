@@ -22,3 +22,9 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+
+    = render 'layouts/messages'
+    %p.alert= alert
+    %p.notice= notice
+
