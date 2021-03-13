@@ -24,7 +24,3 @@ Things you may want to cover:
 * ...
 
 
-    = render 'layouts/messages'
-    %p.alert= alert
-    %p.notice= notice
-

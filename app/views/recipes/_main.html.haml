@@ -1,6 +1,9 @@
 %h1 
   Recipes:
   = @recipes.count
+%p
+  = render 'layouts/messages'
+
 
 %table.table
   %thead
@@ -17,8 +20,9 @@
         %td= recipe.description
         %td= recipe.user
         %td= link_to 'Show', recipe
-        %td= link_to 'Edit', edit_recipe_path(recipe)
-        %td= link_to 'Destroy', recipe, method: :delete, data: { confirm: 'Are you sure?' }
+        - if policy(recipe).edit?
+          %td= link_to 'Edit', edit_recipe_path(recipe)
+          %td= link_to 'Destroy', recipe, method: :delete, data: { confirm: 'Are you sure?' }
 
 %br
 
@@ -28,3 +32,6 @@
 .card-columns
   - @users.each do |user|
     = render 'users/user', user: user
+
+
+    

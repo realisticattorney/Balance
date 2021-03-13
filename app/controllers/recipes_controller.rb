@@ -18,6 +18,7 @@ class RecipesController < ApplicationController
 
   # GET /recipes/1/edit
   def edit
+    authorize @recipe
   end
 
   # POST /recipes or /recipes.json
@@ -38,6 +39,7 @@ class RecipesController < ApplicationController
 
   # PATCH/PUT /recipes/1 or /recipes/1.json
   def update
+    authorize @recipe
     respond_to do |format|
       if @recipe.update(recipe_params)
         format.html { redirect_to @recipe, notice: "Recipe was successfully updated." }
@@ -51,6 +53,7 @@ class RecipesController < ApplicationController
 
   # DELETE /recipes/1 or /recipes/1.json
   def destroy
+    authorize @recipe
     @recipe.destroy
     respond_to do |format|
       format.html { redirect_to recipes_url, notice: "Recipe was successfully destroyed." }
