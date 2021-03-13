@@ -1,0 +1,3 @@
+= form_for(Recipe.new, :url => { :action => "create" })  do |form|
+  = form.text_field :description, class: 'form-control', placeholder: 'Add new Recipe'
+  = form.submit 'Recipe', method: :post, class: 'btn btn-secondary'

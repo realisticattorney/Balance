@@ -1,8 +1,9 @@
-.container-fluid
+.container-fluid.d-flex
   .col-9
     .row 
       %h1 empty
     .row
       = render 'recipes/main'
-  .col-3.border.border-left-0.border-bottom-0.p-0
-    = render 'recipes/rightbar'
+  .col-3
+    .row
+      = render 'recipes/rightbar'

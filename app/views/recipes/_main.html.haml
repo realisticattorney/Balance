@@ -4,6 +4,8 @@
 %p
   = render 'layouts/messages'
 
+.card-columns
+  = render 'recipes/post_from_index'
 
 %table.table
   %thead
@@ -24,14 +26,3 @@
           %td= link_to 'Edit', edit_recipe_path(recipe)
           %td= link_to 'Destroy', recipe, method: :delete, data: { confirm: 'Are you sure?' }
 
-%br
-
-= link_to 'New Recipe', new_recipe_path, class: 'btn btn-primary'
-
-
-.card-columns
-  - @users.each do |user|
-    = render 'users/user', user: user
-
-
-    

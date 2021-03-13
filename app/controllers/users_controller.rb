@@ -5,10 +5,14 @@ def show
   @user = User.find(params)
 end
 
+def index
+  @users = User.all.order(created_at: :desc)
+end
+
 private
 
 def recipe_params
-  params.require(:user).permit(:user)
+  params.require(:user).permit(:user, :avatar)
 end
 
 def set_user
