@@ -56,3 +56,4 @@ gem "haml-rails", "~> 2.0"
 gem 'simple_form'
 gem 'devise'
 gem 'faker'
+gem 'friendly_id', '~> 5.4.0'
