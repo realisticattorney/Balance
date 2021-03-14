@@ -4,20 +4,18 @@
 = render 'recipes/post_from_index'
 %br
 
-%table.table
+%table.table.bg-white.mr-5
   %thead
     %tr
-      %th Description
-      %th User
-      %th
-      %th
-      %th
+      %th.btn-twitter
+        Recipes shared:
+        = @recipes.count
 
   %tbody
     - @recipes.each do |recipe|
       %tr
-        %td= recipe.description
         %td= recipe.user
+        %td= recipe.description
         %td= link_to 'Show', recipe
         - if policy(recipe).edit?
           %td= link_to 'Edit', edit_recipe_path(recipe)
