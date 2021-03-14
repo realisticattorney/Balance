@@ -6,6 +6,10 @@ class User < ApplicationRecord
 
 
   has_many :recipes
+  
+  has_many :relationships, foreign_key: "follower_id", dependent: :destroy
+
+
 
   def to_s
     email

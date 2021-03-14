@@ -50,6 +50,8 @@ group :test do
   gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
+  gem 'database_cleaner-active_record'
+  gem 'shoulda-matchers', '~> 4.0'
 end
 
 gem "haml-rails", "~> 2.0"
@@ -58,3 +60,9 @@ gem 'devise'
 gem 'faker'
 gem 'friendly_id', '~> 5.4.0'
 gem "pundit"
+
+group :development, :test do
+  gem 'rspec-rails', '~> 4.1.0'
+end
+
+gem 'factory_bot'
