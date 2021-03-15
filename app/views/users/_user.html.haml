@@ -1,8 +1,15 @@
 .card
   .card-header
     .fa.fa-user
-    = user.email
+    = current_user.email
   .card-footer
-    Signed up
-    = time_ago_in_words(user.created_at)
-    ago
+    - if @user ||= current_user
+      %a{:href => "#{following_user_path(@user)}"}
+      %strong#following
+        = @user.followed_users.count
+        following
+      %a{:href => "#{followers_user_path(@user)}"}
+      %strong#followers
+        = @user.followers.count
+        followers
+

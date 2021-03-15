@@ -1,0 +1,11 @@
+.row
+  %aside.span4
+    %section
+      %h1
+        -# = gravatar_for @user
+        = @user.email
+    %section
+      = render 'users/user'
+  .span8
+    = render 'follow_form' if signed_in?
+  
