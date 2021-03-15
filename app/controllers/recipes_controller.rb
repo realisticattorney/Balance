@@ -26,14 +26,10 @@ class RecipesController < ApplicationController
     @recipe = Recipe.new(recipe_params)
     @recipe.user = current_user
 
-    respond_to do |format|
       if @recipe.save
-        format.html { redirect_to @recipe, notice: "Recipe was successfully created." }
-        format.json { render :show, status: :created, location: @recipe }
+        redirect_to request.referrer
       else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @recipe.errors, status: :unprocessable_entity }
-      end
+        redirect_to request.referrer, alert: 'Following was NOT destroyed.'
     end
   end
 

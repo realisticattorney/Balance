@@ -1,4 +1,4 @@
-.container.bg-white.mt-4.mr-5.mb-4
+.container.bg-white.mt-5.mr-5.mb-3.pt-1
   = form_for(Recipe.new, :url => { :action => "create" })  do |form|
     %p.pl-4.mb-1.ml-3.pt-3
       Say something
@@ -6,6 +6,6 @@
       .col-11.pt-0
         = form.text_field :description, class: 'form-control', placeholder: 'Add new Recipe'
     .row.justify-content-end
-      .col-3.pt-2.mr-4.mb-4
+      .col-3.pt-3.mr-4.mb-3
         .form-actions
           = form.submit 'Post New Recipe', method: :post, class: 'btn btn-twitter'

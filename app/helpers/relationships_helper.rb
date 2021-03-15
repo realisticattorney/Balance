@@ -13,12 +13,12 @@ module RelationshipsHelper
         content_tag(:div,
                     (button_to 'Follow',
                                relationships_path(followed_id: user.id, follower_id: current_user.id),
-                               method: :post, class: 'button-relationship'))
+                               method: :post, class: 'px-2 bg-blue-300 rounded-lg cursor-pointer'), class: 'px-2 bg-blue-300 rounded-lg cursor-pointer')
       else
         content_tag(:div,
                     (button_to 'Unfollow',
                                relationship_path(id: relationship.id, followed_id: user.id),
-                               method: :delete, class: 'button-relationship'))
+                               method: :delete, class: 'px-2 bg-blue-300 rounded-lg cursor-pointer'), class: 'px-2 bg-blue-300 rounded-lg cursor-pointer' )
  
       end
     end

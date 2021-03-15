@@ -16,6 +16,8 @@
         %h5 
           = current_user.recipes.count
           Recipes
+    %p.align-self-bottom
+      = render 'layouts/messages'
 - else       
 %nav#sidebar
   .sidebar-header
