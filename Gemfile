@@ -66,3 +66,5 @@ group :development, :test do
 end
 
 gem 'factory_bot'
+
+gem 'gravatar_image_tag'
