@@ -24,3 +24,11 @@ Things you may want to cover:
 * ...
 
 
+
+
+     elsif relationship.follower_id == user.id
+        content_tag(:div, (button_to 'Accept relationship', relationship_path(relationship.id), method: :put) +
+                            (button_to 'Reject relationship', relationship_path(relationship.id), method: :delete))
+      else
+        content_tag(:p, 'Pending Response', class: 'button-relationship status pending')
+      end

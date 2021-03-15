@@ -1,5 +1,6 @@
 - @users.each do |user|
-  = render 'users/user', user: user
-
-
-    
+  %br
+  - unless current_user.id == user.id
+    = link_to user.email, user_path(user), class: 'profile-link'
+  %br
+  %br

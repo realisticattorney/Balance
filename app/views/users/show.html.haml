@@ -1,11 +1,26 @@
 .row
   %aside.span4
     %section
-      %h1
-        -# = gravatar_for @user
-        = @user.email
-    %section
+
+.container-fluid.d-flex
+  .col-9
+    .row 
+      .card-columns.border-bottom-0
+        .rectangle-4
+        .rectangle-41
+        %h5 Recipes
+    .row
+      - if @user == current_user
+        = render 'recipes/recipe_from_index'
+      %br
+    - if !@user.recipes.empty?
+      - @user.recipes.each do |recipe|
+        .d-flex.py-3.justify-content-between.align-items-center
+          .d-flex.flex-column.ml-3
+            = link_to recipe.user.email, user_path(recipe.user)
+            %span.text-secondary 
+              = recipe.description
+  .col-3
+    .row
+      = relationship_button(@user, current_user)
       = render 'users/user'
-  .span8
-    = render 'follow_form' if signed_in?
-  

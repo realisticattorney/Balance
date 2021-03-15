@@ -1,35 +1,39 @@
 %nav.navbar.navbar-expand-lg.navbar-dark.bg-twitter.pb-3.pt-3
-  %a.navbar-brand{:href => "#"} Twitter
+  %a.navbar-brand{:href => root_path}
+    .fab.fa-twitter.fa-lg.pl-2
   %button.navbar-toggler{"aria-controls" => "navbarSupportedContent", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarSupportedContent", "data-toggle" => "collapse", :type => "button"}
     %span.navbar-toggler-icon
   #navbarSupportedContent.collapse.navbar-collapse
     - if current_user
-      %ul.navbar-nav.mr-auto
-        %li.nav-item{class: "#{'active font-weight-bold' if current_page?(root_path)}"}
-          = link_to root_path, class: 'nav-link' do
-            .fa.fa-home
-            Home
-        %li.nav-item{class: "#{'active font-weight-bold' if current_page?(recipes_path)}"}
-          = link_to recipes_path, class: 'nav-link' do
-            .fa.fa-book
-            Recipes
+      %ul.navbar-nav.mr-auto.pl-2
+        -# %li.nav-item{class: "#{'active font-weight-bold' if current_page?(root_path)}"}
+        -#   = link_to root_path, class: 'nav-link' do
+        -#     .fab.fa-twitter
+        -#     Home
+        -# %li.nav-item{class: "#{'active font-weight-bold' if current_page?(recipes_path)}"}
+        -#   = link_to recipes_path, class: 'nav-link' do
+        -#     .fa.fa-book.fa-lg
+        -#     Recipes
       %ul.navbar-nav.mr-right
         %li.nav-item{class: "#{'active font-weight-bold' if current_page?(new_recipe_path)}"}
           = link_to new_recipe_path, class: 'nav-link' do
-            .fas.fa-pen
-      %ul.navbar-nav.mr-right
+            .fas.fa-pen.fa-lg
+      %ul.navbar-nav.mr-right.pl-2
         %li.nav-item{class: "#{'active font-weight-bold' if current_page?(new_recipe_path)}"}
           = link_to new_recipe_path, class: 'nav-link' do
-            .fas.fa-envelope
-            .fas.fa-search
-        %li.nav-item.dropdown
+            .fas.fa-envelope.fa-lg
+      %ul.navbar-nav.mr-right.pl-2
+        %li.nav-item{class: "#{'active font-weight-bold' if current_page?(new_recipe_path)}"}
+          = link_to new_recipe_path, class: 'nav-link' do
+            .fas.fa-search.fa-lg
+        %li.nav-item.dropdown.pr-3.pl-2
           %a#navbarDropdown.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
-            .fa.fa-cog
+            .fa.fa-cog.fa-lg
           .dropdown-menu.dropdown-menu-right{"aria-labelledby" => "navbarDropdown"}
             = link_to edit_user_registration_path, class: "dropdown-item" do
               %b Account settings
             = link_to destroy_user_session_path, method: :delete, class: "dropdown-item" do
-              .fa.fa-sign-out-alt
+              .fa.fa-sign-out-alt.fa-lg
               %b Sign out
     - else
       %ul.navbar-nav

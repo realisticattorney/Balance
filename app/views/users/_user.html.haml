@@ -1,15 +1,29 @@
-.card
-  .card-header
-    .fa.fa-user
-    = current_user.email
-  .card-footer
-    - if @user ||= current_user
-      %a{:href => "#{following_user_path(@user)}"}
-      %strong#following
-        = @user.followed_users.count
-        following
-      %a{:href => "#{followers_user_path(@user)}"}
-      %strong#followers
-        = @user.followers.count
-        followers
+- if @user ||= current_user
+  .card
+    .card-header
+      .fa.fa-user
+      = @user.email
+  %section.flex.flex-row.justify-center.text-center.m-auto
+    .has-text-centered.px-5.py-2.border-r-2
+      %h3= @user.followers.count
+      %h4 Followers
+    .has-text-centered.px-5.py-2
+      %h3= @user.followed_users.count
+      %h4 Followed
+    .has-text-centered.px-5.py-2
+      %h3= pluralize(@user.recipes.count, 'recipes')
+             
+          
+- @users.each do |user|
+  - unless user.id == current_user.id || user.id == @user.id
+    .grid.grid-cols-3.pt-3
+      .flex.flex-row.col-span-2
+        .p-3
+          %strong
+            = link_to user.email, user, class: 'hover:text-blue-700 hover:bg-transparent'
+      .mt-4.text-center
+        = relationship_button(user, current_user)
+    %br
+
+
 
