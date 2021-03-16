@@ -32,7 +32,7 @@ end
 private
 
 def recipe_params
-  params.require(:user).permit(:email, :follower_id, :followed_id, :photo, :coverimage)
+  params.require(:user).permit(:email, :follower_id, :followed_id, :avatar_photo, :cover_photo)
 end
 
 def set_user

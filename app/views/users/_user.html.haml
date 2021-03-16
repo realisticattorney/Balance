@@ -3,6 +3,9 @@
     .card-header
       .fa.fa-user
       = @user.email
+      %div
+        -# = image_tag(photo(@user.avatar_photo), :class =>'h-18 w-18 rounded-full')
+        = image_tag @user.gravatar_url
   %section.flex.flex-row.justify-center.text-center.m-auto
     .has-text-centered.px-5.py-2.border-r-2
       %h5
@@ -20,12 +23,12 @@
           
 - @users.each do |user|
   - unless user.id == current_user.id || user.id == @user.id
-    -# .grid.grid-cols-3.pt-3
-    -# .flex.flex-row.col-span-2
-    -#   = image_tag(photo(user.photo), :class =>'w-12 h-12 rounded-full')
-    -#   .p-3
-    -#     %strong
-    -#       = link_to user.username, user, class: 'hover:text-blue-700 hover:bg-transparent'
+    .grid.grid-cols-3.pt-3
+    .flex.flex-row.col-span-2
+      -# = image_tag(photo(user.avatar_photo), :class =>'w-12 h-12 rounded-full')
+      .p-3
+        %strong
+          = link_to user.username, user, class: 'hover:text-blue-700 hover:bg-transparent'
     .grid.grid-cols-3.pt-3
       .flex.flex-row.col-span-2
         .p-3

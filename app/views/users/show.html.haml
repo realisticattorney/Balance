@@ -9,6 +9,7 @@
         .rectangle-4
         .rectangle-41
         %h5 Recipes
+        = image_tag(cover_image(@user.cover_photo), :class =>'cover-image')
     .row
       - if @user == current_user
         = render 'recipes/recipe_from_index'
@@ -24,5 +25,4 @@
     .row
       = relationship_button(@user, current_user)
       = render 'users/user'
-  
   

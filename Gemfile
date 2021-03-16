@@ -66,5 +66,7 @@ group :development, :test do
 end
 
 gem 'factory_bot'
-
+gem 'unsplash'
 gem 'gravatar_image_tag'
+gem 'gravtastic'
+gem "aws-sdk-s3", require: false
