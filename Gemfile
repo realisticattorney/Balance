@@ -70,3 +70,4 @@ gem 'unsplash'
 gem 'gravatar_image_tag'
 gem 'gravtastic'
 gem "aws-sdk-s3", require: false
+gem 'active_storage_validations'

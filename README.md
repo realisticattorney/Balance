@@ -23,6 +23,7 @@ Things you may want to cover:
 
 * ...
 
+-# = image_tag(cover_image(@user.cover_photo), :class =>'cover-image')
 
 
 

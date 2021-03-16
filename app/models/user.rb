@@ -17,7 +17,14 @@ class User < ApplicationRecord
   has_many :followers, through: :reverse_relationships, source: :follower
   
   has_one_attached :avatar_photo
+  validates :avatar_photo, attached: true, 
+    content_type: ['image/png', 'image/jpg', 'image/jpeg'], 
+    size: { less_than: 300.kilobytes , message: 'size should be under 300 kilobytes' }
   
+  has_one_attached :cover_photo
+  validates :cover_photo, attached: true, 
+    content_type: ['image/png', 'image/jpg', 'image/jpeg'], 
+    size: { less_than: 600.kilobytes , message: 'size should be under 600 kilobytes' }
 
   def following?(other_user)
     relationships.find_by_followed_id(other_user.id)

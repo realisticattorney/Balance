@@ -5,7 +5,7 @@
       = @user.email
       %div
         -# = image_tag(photo(@user.avatar_photo), :class =>'h-18 w-18 rounded-full')
-        = image_tag @user.gravatar_url
+        = image_tag @user.gravatar_url, height: "48px", width: "48px"
   %section.flex.flex-row.justify-center.text-center.m-auto
     .has-text-centered.px-5.py-2.border-r-2
       %h5

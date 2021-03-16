@@ -9,7 +9,9 @@
         .rectangle-4
         .rectangle-41
         %h5 Recipes
-        = image_tag(cover_image(@user.cover_photo), :class =>'cover-image')
+        = image_tag @user.gravatar_url, height: "133px", width: "133px"
+        - if @user.cover_photo.attached?
+          = image_tag @user.cover_photo, height: "200px", width: "600px"
     .row
       - if @user == current_user
         = render 'recipes/recipe_from_index'
