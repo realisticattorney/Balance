@@ -1,20 +1,20 @@
-= render 'recipes/recipe_from_index'
+.row.bg-white.mr-5.mt-5
+  = render 'recipes/recipe_from_index'
 %br
 
-%table.table.bg-white.mr-5
-  %thead
-    %tr
-      %th.btn-twitter
-        Recipes shared:
-        = @recipes.count
-
-  %tbody
-    - @recipes.each do |recipe|
-      %tr
-        %td= link_to recipe.user, user_path(recipe.user), class: 'profile-link'
-        %td= recipe.description
-        %td= link_to 'Show', recipe
-        - if policy(recipe).edit?
-          %td= link_to 'Edit', edit_recipe_path(recipe)
-          %td= link_to 'Destroy', recipe, method: :delete, data: { confirm: 'Are you sure?' }
-
+- @recipes.each do |recipe|
+  .row.bg-white.mr-5.py-4
+    .col-1
+      = image_tag recipe.user.avatar_photo, height: "50px", width: "50px"
+    .col-9.ml-2
+      .row
+        %h6
+          = link_to recipe.user.fullname, user_path(recipe.user)
+          %small
+            = link_to "@" + recipe.user.username, user_path(recipe.user)
+      .row
+        %p= recipe.description
+    .row
+      - if policy(recipe).edit?
+        %small
+          = link_to 'Destroy', recipe, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-twitter align-self-center'

@@ -14,17 +14,37 @@
     .row
       %h5.pt-5.pl-2
         Recipes
-    .row
+    .row.mr-4
       - if @user == current_user
         = render 'recipes/recipe_from_index'
-      %br
     - if !@user.recipes.empty?
       - @user.recipes.each do |recipe|
-        .d-flex.py-3.justify-content-between.align-items-center
-          .d-flex.flex-column.ml-3
-            = link_to recipe.user.email, user_path(recipe.user)
-            %span.text-secondary 
-              = recipe.description
+        .row.bg-white.mr-5.py-4.mt-2
+          .col-1
+            = image_tag recipe.user.avatar_photo, height: "50px", width: "50px"
+          .col-9.ml-2
+            .row
+              %h6
+                = link_to recipe.user.fullname, user_path(recipe.user)
+                %small
+                  = link_to "@" + recipe.user.username, user_path(recipe.user)
+            .row
+              %p= recipe.description
+          .row
+            - if policy(recipe).edit?
+              %small
+                = link_to 'Destroy', recipe, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-twitter align-self-center'
+
+
+
+
+
+
+
+
+
+
+
   .col-3.ml-1
     = render 'users/user'
     .row.py-3
