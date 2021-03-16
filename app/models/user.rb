@@ -6,6 +6,8 @@ class User < ApplicationRecord
   
   has_many :recipes, dependent: :destroy
   
+  validates :fullname, presence: true, length: { in: 3..25 }
+  validates :username, presence: true, length: { in: 3..15 }, uniqueness: true
   
   has_many :relationships, foreign_key: "follower_id", dependent: :destroy
   has_many :followed_users, through: :relationships, source: :followed

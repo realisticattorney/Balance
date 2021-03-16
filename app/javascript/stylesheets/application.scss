@@ -100,12 +100,41 @@ ul ul a {
     position: absolute;
     width: 100%;
     height: 1px;
-    left: 0px;
+    right: 10px;
     top: 43px;
 
     background: rgb(199, 199, 199);
 }
 
+
+.rectangle-42 {
+    position: absolute;
+    width: 100px;
+    height: 4px;
+    left: 0px;
+    top: 280px;
+
+    background: #3D8AFF;
+}
+
+.rectangle-5 {
+    position: absolute;
+    width: 95%;
+    height: 1px;
+    right: 10px;
+    top: 280px;
+
+    background: rgb(199, 199, 199);
+}
+
+.rectangle-6 {
+    position: absolute;
+    width: 1px;
+    height: 1000px;
+    right: 10px;
+
+    background: rgb(199, 199, 199);
+}
 
 a:hover {
     color:inherit;

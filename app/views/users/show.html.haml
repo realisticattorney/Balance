@@ -4,14 +4,16 @@
 
 .container-fluid.d-flex
   .col-9
+    .row
+      - if @user.cover_photo.attached?
+        = image_tag @user.cover_photo, height: "200px", width: "766px"
     .row 
       .card-columns.border-bottom-0
-        .rectangle-4
-        .rectangle-41
-        %h5 Recipes
-        = image_tag @user.gravatar_url, height: "133px", width: "133px"
-        - if @user.cover_photo.attached?
-          = image_tag @user.cover_photo, height: "200px", width: "600px"
+        .rectangle-5
+        .rectangle-42
+    .row
+      %h5.pt-5.pl-2
+        Recipes
     .row
       - if @user == current_user
         = render 'recipes/recipe_from_index'
@@ -23,8 +25,12 @@
             = link_to recipe.user.email, user_path(recipe.user)
             %span.text-secondary 
               = recipe.description
-  .col-3
-    .row
-      = relationship_button(@user, current_user)
-      = render 'users/user'
+  .col-3.ml-1
+    = render 'users/user'
+    .row.py-3
+      %nav
+        %h5.pl-1
+          Followed by
+        .sidebar-header
+          = render 'recipes/rightbar'
   

@@ -1,44 +1,36 @@
 - if @user ||= current_user
-  .card
-    .card-header
-      .fa.fa-user
-      = @user.email
-      %div
-        -# = image_tag(photo(@user.avatar_photo), :class =>'h-18 w-18 rounded-full')
-        = image_tag @user.gravatar_url, height: "48px", width: "48px"
-  %section.flex.flex-row.justify-center.text-center.m-auto
-    .has-text-centered.px-5.py-2.border-r-2
-      %h5
-        = @user.followers.count
-        Followers
-    .has-text-centered.px-5.py-2
-      %h5
-        = @user.followed_users.count 
-        Followed
-    .has-text-centered.px-5.py-2
-      %h5 
-        = @user.recipes.count
-        Recipes
-            
-          
-- @users.each do |user|
-  - unless user.id == current_user.id || user.id == @user.id
-    .grid.grid-cols-3.pt-3
-    .flex.flex-row.col-span-2
-      -# = image_tag(photo(user.avatar_photo), :class =>'w-12 h-12 rounded-full')
-      .p-3
+  .row.py-2
+    .col-4.align-self-center
+      = relationship_button(@user, current_user)
+    .col-6   
+      = image_tag @user.avatar_photo, height: "100px", width: "100px"
+  .row
+    .col-12
+      %h4.pl-5.ml-5
+        = @user.fullname
+  .row
+    .col-12
+      %h6.pl-5.ml-5
+        = @user.username
+  .row     
+    .col-4
+      %h5.px-4.ml-1
         %strong
-          = link_to user.username, user, class: 'hover:text-blue-700 hover:bg-transparent'
-    .grid.grid-cols-3.pt-3
-      .flex.flex-row.col-span-2
-        .p-3
-          %strong
-            = link_to user.email, user, class: 'hover:text-blue-700 hover:bg-transparent'
-      .mt-0.text-center
-        = relationship_button(user, current_user)
-    %br
+          = @user.recipes.count
+      Recipes
+    .col-4
+      %h5.px-4.ml-1
+        %strong
+          = @user.followers.count
+      Following
+    .col-4
+      %h5.pl-4.ml-1
+        %strong
+          = @user.followed_users.count 
+      Followers
 
 
+   
 
 
 

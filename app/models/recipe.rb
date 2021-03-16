@@ -11,4 +11,6 @@ class Recipe < ApplicationRecord
     @randomslug ||= persisted? ? Friendly_id : SecureRandom.hex(4)
   end
 
+  has_rich_text :description
+
 end

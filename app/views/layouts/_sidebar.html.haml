@@ -2,20 +2,20 @@
   %nav#sidebar
     .sidebar-header
       %h6
-        .fa.fa-user
-        %b= current_user
-      .has-text-centered.px-5.py-2.border-r-2
-        %h5
-          = current_user.followers.count
-          Followers
-      .has-text-centered.px-5.py-2
-        %h5
-          = current_user.followed_users.count 
-          Followed
-      .has-text-centered.px-5.py-2
-        %h5 
-          = current_user.recipes.count
-          Recipes
+        = image_tag current_user.avatar_photo, height: "64px", width: "64px"
+        %b.pl-2
+          = link_to current_user.fullname, user_path(current_user)
+    .row     
+      .pl-5.pr-3.py-2.border-r-2
+        %h5.px-4.ml-1
+          %strong
+            = current_user.followers.count
+        Following
+      .pl-3.py-2.border-r-2
+        %h5.pl-4.ml-1
+          %strong
+            = current_user.followed_users.count 
+        Followers
     %p.align-self-bottom
       = render 'layouts/messages'
 - else       
