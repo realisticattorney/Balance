@@ -34,17 +34,7 @@
             - if policy(recipe).edit?
               %small
                 = link_to 'Destroy', recipe, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-twitter align-self-center'
-
-
-
-
-
-
-
-
-
-
-
+  
   .col-3.ml-1
     = render 'users/user'
     .row.py-3
@@ -52,5 +42,5 @@
         %h5.pl-1
           Followed by
         .sidebar-header
-          = render 'recipes/rightbar'
+          = render 'rightbar_user'
   

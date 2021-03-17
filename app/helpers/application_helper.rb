@@ -1,5 +1,5 @@
 module ApplicationHelper
-
+  
   def photo(link)
     link ||= "https://source.unsplash.com/random/200x200"
   end
@@ -18,12 +18,13 @@ module ApplicationHelper
     user.id == session[:user_id]
   end
 
-  # def like_or_dislike_btn(talk)
-  #   like = Like.find_by(talk: talk, user: current_user)
-  #   if like
-  #     link_to('Dislike', talk_like_path(id: like.id, talk_id: talk.id), method: :delete)
-  #   else
-  #     link_to('Like', talk_likes_path(talk_id: talk.id), method: :post)
-  #   end
-  # end
+  def like_button(recipe)
+    like = Like.find_by(recipe: recipe, user: current_user)
+    if like
+      link_to('Dislike!', recipe_like_path(id: like.id, recipe_id: recipe.id), method: :delete, class: 'btn btn-twitter align-self-center')
+    else
+      link_to('Like!', recipe_likes_path(recipe_id: recipe.id), method: :post,  class: 'btn align-self-center')
+    end
+  end
+
 end

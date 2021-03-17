@@ -10,35 +10,22 @@
         %h5.px-4.ml-1
           %strong
             = current_user.followers.count
-        Following
+        Followers
       .pl-3.py-2.border-r-2
         %h5.pl-4.ml-1
           %strong
             = current_user.followed_users.count 
-        Followers
+        Following
     %p.align-self-bottom
-      = render 'layouts/messages'
-- else       
-%nav#sidebar
-  .sidebar-header
-  %ul.list-unstyled.components
-    %li
-      %h5.pl-2
-        TWITTER
-    %br
-    %li.active
-      %a{:href => "recipes"}
-        .fa.fa-home 
-        Home
-    %li
-      %a{:href => "#"} 
-        .fa.fa-at
-        Connect
-    %li
-      %a{:href => "#"} 
-        .fa.fa-hashtag
-        Discover
-    %li
-      %a{:href => "#"} 
-        .fa.fa-user
-        Profile
+      = render 'layouts/messages'       
+
+    .sidebar-header
+    %ul.list-unstyled.components
+      %li.active
+        %a{:href => root_path}
+          .fa.fa-home 
+          %b Home
+      %li
+        = link_to edit_user_registration_path, class: "dropdown-item" do
+          .fa.fa-cog.fa-lg
+          %b Edit Profile

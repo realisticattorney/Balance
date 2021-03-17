@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :recipes
+  resources :recipes do
+    resources :likes, only: [:create, :destroy]
+  end
   resources :users
   resources :relationships, only: [:create, :destroy]
 

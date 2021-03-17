@@ -3,6 +3,8 @@ class Recipe < ApplicationRecord
 
   belongs_to :user
 
+  has_many :likes, dependent: :destroy
+  
   extend FriendlyId
   friendly_id :generated_hash, use: :slugged
 

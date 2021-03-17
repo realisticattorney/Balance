@@ -5,13 +5,15 @@ class User < ApplicationRecord
   :recoverable, :rememberable, :validatable
   
   has_many :recipes, dependent: :destroy
-  
+  has_many :likes, dependent: :destroy
+
   validates :fullname, presence: true, length: { in: 3..25 }
   validates :username, presence: true, length: { in: 3..15 }, uniqueness: true
   
   has_many :relationships, foreign_key: "follower_id", dependent: :destroy
   has_many :followed_users, through: :relationships, source: :followed
   
+  scope :ordered_by_most_recent, -> { order(created_at: :desc) }
   
   has_many :reverse_relationships, foreign_key: "followed_id",
   class_name:  "Relationship",

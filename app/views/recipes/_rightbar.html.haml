@@ -1,14 +1,14 @@
 - @users.each do |user|
-  - unless current_user.id == user.id
+  - unless current_user.id == user.id || current_user.following?(user)
     .row.py-3
       .col-3
         = image_tag user.avatar_photo, height: "60x", width: "60px"
       .col-6
         .row
-          %h5.pl-2
+          %h5.pl-3
             = link_to user.username, user_path(user), class: 'profile-link'
         .row
-          %h6.pl-2
+          %h6.pl-3
             = user.fullname
       .col-3
         = relationship_button(user, current_user)
