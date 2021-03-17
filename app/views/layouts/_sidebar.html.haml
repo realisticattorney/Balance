@@ -1,8 +1,8 @@
-- if signed_in?
+- if signed_in? 
   %nav#sidebar
     .sidebar-header
       %h6
-        = image_tag current_user.avatar_photo, height: "64px", width: "64px"
+        = image_tag avatar_for(current_user), height: "64px", width: "64px", class: "rounded-circle" 
         %b.pl-2
           = link_to current_user.fullname, user_path(current_user)
     .row     

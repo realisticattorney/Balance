@@ -5,8 +5,7 @@
 .container-fluid.d-flex
   .col-9
     .row
-      - if @user.cover_photo.attached?
-        = image_tag @user.cover_photo, height: "200px", width: "766px"
+      = image_tag cover_for(@user), height: "200px", width: "766px"
     .row 
       .card-columns.border-bottom-0
         .rectangle-5
@@ -21,7 +20,7 @@
       - @user.recipes.each do |recipe|
         .row.bg-white.mr-5.py-4.mt-2
           .col-1
-            = image_tag recipe.user.avatar_photo, height: "50px", width: "50px"
+            = image_tag avatar_for(recipe.user), height: "50px", width: "50px", class: "rounded-circle"
           .col-9.ml-2
             .row
               %h6

@@ -27,4 +27,32 @@ module ApplicationHelper
     end
   end
 
+
+  def cover_for(user)
+    @cover = user.cover_photo
+    if @cover.nil?
+        @cover_user = image_tag("600x200.jpeg")
+    else
+        @cover_user = user.cover_photo
+    end
+    return @cover_user
+end
+
+  def avatar_for(user)
+    @avatar = user.avatar_photo
+    if @avatar.nil?
+        @avatar_user = image_tag("600x200.jpeg")
+    else
+        @avatar_user = user.avatar_photo
+    end
+    return @avatar_user
+end
+
+  def user_avatar(user, size=40)
+    if user.avatar_photo.attached?
+      user.avatar_photo.variant(resize: "#{size}x#{size}!")
+    else
+      gravatar_image_url('200x200.jpeg', size: size)
+    end
+  end
 end

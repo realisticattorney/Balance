@@ -27,9 +27,9 @@ class RecipesController < ApplicationController
     @recipe.user = current_user
 
       if @recipe.save
-        redirect_to request.referrer
+        redirect_to root_path
       else
-        redirect_to request.referrer, alert: 'Following was NOT destroyed.'
+        redirect_to request.referrer, alert: 'Recipe was not created'
     end
   end
 
@@ -65,6 +65,6 @@ class RecipesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def recipe_params
-      params.require(:recipe).permit(:description, :avatar, :users, :user_id)
+      params.require(:recipe).permit(:description, :avatar, :users)
     end
 end

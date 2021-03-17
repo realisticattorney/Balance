@@ -1,5 +1,5 @@
 .container
-  = form_for(Recipe.new, :url => { :action => "create" })  do |form|
+  = form_for(Recipe.new, :url => { :action => "create", :controller=>"recipes", :id=> current_user.id })  do |form|
     %p.pl-4.mb-1.ml-3.pt-3
       Say something
     .row.justify-content-center

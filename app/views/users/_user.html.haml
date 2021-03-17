@@ -3,7 +3,7 @@
     .col-4.align-self-center
       = relationship_button(@user, current_user)
     .col-6   
-      = image_tag @user.avatar_photo, height: "100px", width: "100px"
+      = image_tag avatar_for(@user), height: "100px", width: "100px", class: 'rounded-circle'
   .row
     .col-12
       %h4.pl-5.ml-5
