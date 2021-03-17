@@ -22,7 +22,7 @@
       <%= f.error :cover_photo, class: 'text-danger' %>
     </small>
     <div class="row">
-      <% if @user.avatar_photo.attached? %>
+      <% if resource.avatar_photo.attached? %>
         <%= image_tag @user.avatar_photo, width: "200px" %>
       <% end %>
     </div>

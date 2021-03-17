@@ -86,8 +86,10 @@ ul ul a {
     background: #6d7fcc;
 }
 #sidebar {
+  min-width: 250px;
   max-width: 250px;
   min-height: 100vh;
+  position: fixed; 
 }
 
 .bg-twittergrey {
@@ -149,3 +151,22 @@ a:hover {
     background-color: inherit;
     text-decoration: underline;
 }
+
+
+//footer always on the bottom
+html {
+	position: relative;
+	min-height: 100%;
+}
+body {
+	margin: 0 0 200px;
+}
+.footer {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	//height: 200px;
+	width: 100%;
+	overflow: hidden;
+    background-color:  #223246;
+} 
