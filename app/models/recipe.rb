@@ -4,7 +4,7 @@ class Recipe < ApplicationRecord
   belongs_to :user
 
   has_many :likes, dependent: :destroy
-  
+
   extend FriendlyId
   friendly_id :generated_hash, use: :slugged
 
@@ -13,6 +13,5 @@ class Recipe < ApplicationRecord
     @randomslug ||= persisted? ? Friendly_id : SecureRandom.hex(4)
   end
 
-  has_rich_text :description
 
 end

@@ -35,10 +35,6 @@
             = link_to destroy_user_session_path, method: :delete, class: "dropdown-item" do
               .fa.fa-sign-out-alt.fa-lg
               %b Sign out
-    - else
-      %ul.navbar-nav
-        %li.nav-item= link_to 'Sign Up', new_user_registration_path, class: 'nav-link'
-        %li.nav-item= link_to 'Log In', new_user_session_path, class: 'nav-link'
 
 
 
