@@ -1,15 +1,5 @@
 module ApplicationHelper
   
-  def photo(link)
-    link ||= "https://source.unsplash.com/random/200x200"
-  end
-
-  # rubocop:disable Lint/UselessAssignment
-  def cover_image(link)
-    link ||= "https://source.unsplash.com/random/600x200"
-  end
-  # rubocop:enable Lint/UselessAssignment
-
   def following?(user)
     current_user.following.include?(user)
   end
