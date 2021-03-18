@@ -1,37 +1,36 @@
-- if @user ||= current_user
-  .row.py-2
-    .col-4.align-self-center
-      = relationship_button(@user, current_user)
-    .col-6   
-      = image_tag avatar_for(@user), height: "100px", width: "100px", class: 'rounded-circle'
-  .row
-    .col-12
-      %h4.pl-5.ml-5
-        = @user.fullname
-  .row
-    .col-12
-      %h6.pl-5.ml-5
-        = "@" + @user.username
-  .row     
-    .col-4
-      %h5.px-4.ml-1
-        %strong
-          = @user.recipes.count
-      Recipes
-    .col-4
-      %h5.px-4.ml-1
-        %strong
-          = @user.followers.count
-      Followers
-    .col-4
-      %h5.pl-4.ml-1
-        %strong
-          = @user.followed_users.count 
-      Following
+.row.py-2
+  .col-4.align-self-center
+    = relationship_button(@user, current_user)
+  .col-6   
+    = image_tag avatar_for(@user), height: "100px", width: "100px", class: 'rounded-circle'
+.row
+  .col-12
+    %h4.pl-5.ml-5
+      = @user.fullname
+.row
+  .col-12
+    %h6.pl-5.ml-5
+      = "@" + @user.username
+.row     
+  .col-4
+    %h5.px-4.ml-1
+      %strong
+        = @user.recipes.count
+    Recipes
+  .col-4
+    %h5.px-4.ml-1
+      %strong
+        = @user.followers.count
+    Followers
+  .col-4
+    %h5.pl-4.ml-1
+      %strong
+        = @user.followed_users.count 
+    Following
 
 
-   
+  
 
 
 
-   
+  

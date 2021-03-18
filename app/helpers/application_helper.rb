@@ -18,6 +18,14 @@ module ApplicationHelper
     user.id == session[:user_id]
   end
 
+  def signed
+    if signed_in?
+      render 'layouts/sidebar'
+    else
+      render 'layouts/sidebar_before_signed'
+    end
+  end
+
   def like_button(recipe)
     like = Like.find_by(recipe: recipe, user: current_user)
     if like
@@ -55,28 +63,6 @@ def is_current_user?(user)
 end
 
 
-
-
-def feed(recipe, user)
-  out = ''
-  unless user.recipes.empty?
-    out << ".row.bg-white.mr-5.py-4.mt-2
-    .col-1
-      = #{image_tag recipe.user.avatar_photo, height: "50px", width: "50px"}
-    .col-9.ml-2
-      .row
-        %h6
-          = #{link_to recipe.user.fullname, user_path(recipe.user)}
-          %small
-            = #{link_to "@" + recipe.user.username, user_path(recipe.user)}
-      .row
-        %p= #{recipe.description}"
-  end
-  out.html_safe
-end
-
-
-
 def feed(recipe, user)
   if user.recipes.empty?
     return "%h3 No predictions available yet".html_safe
@@ -105,6 +91,23 @@ def followed_by(user, other_user)
       render 'users/rightbar_user', user: other_user
   end
 end
+end
+
+def user_profile_stats(user)
+  if user ||= current_user
+    render 'users/user'
+  end
+end
+
+def before_signed
+  if devise_mapping.registerable? && controller_name != 'registrations'
+    link_to('Sign Up', new_user_registration_path, class: 'nav-link')
+    link_to('Log In', new_user_session_path, class: 'nav-link bg-white')
+  end
+  if controller_name != 'sessions'
+    link_to('Sign Up', new_user_registration_path, class: 'nav-link bg-white')
+    link_to('Log In', new_user_session_path, class: 'nav-link')
+  end
 end
 
 end
