@@ -56,4 +56,39 @@ end
 
 
 
+
+def feed(recipe, user)
+  out = ''
+  unless user.recipes.empty?
+    out << ".row.bg-white.mr-5.py-4.mt-2
+    .col-1
+      = #{image_tag recipe.user.avatar_photo, height: "50px", width: "50px"}
+    .col-9.ml-2
+      .row
+        %h6
+          = #{link_to recipe.user.fullname, user_path(recipe.user)}
+          %small
+            = #{link_to "@" + recipe.user.username, user_path(recipe.user)}
+      .row
+        %p= #{recipe.description}"
+  end
+  out.html_safe
+end
+
+
+
+def feed(recipe, user)
+  if user.recipes.empty?
+    return "%h3 No predictions available yet".html_safe
+  else  
+    render 'users/feed', user: user, recipe: recipe
+  end
+end
+
+def authorized_edit?(recipe)
+  if policy(recipe).edit?
+    link_to('Destroy', recipe, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-twitter align-self-center')
+  end
+end
+
 end

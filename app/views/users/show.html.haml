@@ -5,8 +5,7 @@
 .container-fluid.d-flex
   .col-9
     .row
-      - if @user.cover_photo.attached?
-        = image_tag @user.cover_photo, height: "200px", width: "766px"
+      = image_tag @user.cover_photo, height: "200px", width: "766px"
     .row 
       .card-columns.border-bottom-0
         .rectangle-5
@@ -16,23 +15,8 @@
         Recipes
     .row.mr-4
       = is_current_user?(@user)
-    - if !@user.recipes.empty?
-      - @user.recipes.each do |recipe|
-        .row.bg-white.mr-5.py-4.mt-2
-          .col-1
-            = image_tag recipe.user.avatar_photo, height: "50px", width: "50px"
-          .col-9.ml-2
-            .row
-              %h6
-                = link_to recipe.user.fullname, user_path(recipe.user)
-                %small
-                  = link_to "@" + recipe.user.username, user_path(recipe.user)
-            .row
-              %p= recipe.description
-          .row
-            - if policy(recipe).edit?
-              %small
-                = link_to 'Destroy', recipe, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-twitter align-self-center'
+    - @user.recipes.each do |recipe|
+      = feed(recipe, @user)
   
   .col-3.ml-1
     = render 'users/user'
