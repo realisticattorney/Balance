@@ -2,11 +2,12 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:edit, :update]
 
 def show
-  @users = User.all.order(created_at: :desc)
+  @users = User.all.order(created_at: :desc).with_attached_avatar_photo
   @user = User.find(params[:id])
   @recipe = Recipe.new
   @recipe = Recipe.all.order(created_at: :desc)
   @follow = Relationship.new
+  
 end
 
 def index

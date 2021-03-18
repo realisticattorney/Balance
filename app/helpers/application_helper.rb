@@ -41,18 +41,19 @@ end
   def avatar_for(user)
     @avatar = user.avatar_photo
     if @avatar.nil?
-        @avatar_user = image_tag("600x200.jpeg")
+        @avatar_user = image_tag("200x200.jpeg")
     else
         @avatar_user = user.avatar_photo
     end
     return @avatar_user
 end
 
-  def user_avatar(user, size=40)
-    if user.avatar_photo.attached?
-      user.avatar_photo.variant(resize: "#{size}x#{size}!")
-    else
-      gravatar_image_url('200x200.jpeg', size: size)
-    end
+def is_current_user?(user)
+  if user == current_user
+    render 'recipes/recipe_from_index'
   end
+end
+
+
+
 end
