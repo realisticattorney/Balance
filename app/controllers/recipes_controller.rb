@@ -4,7 +4,7 @@ class RecipesController < ApplicationController
   # GET /recipes or /recipes.json
   def index
     @recipes = Recipe.includes([:user], user: :avatar_photo_attachment, user:{avatar_photo_attachment: :blob}).all.order(created_at: :desc)
-    @users = User.all.order(created_at: :desc).with_attached_avatar_photo
+    @users = User.all.order(created_at: :desc)
     
   end
 

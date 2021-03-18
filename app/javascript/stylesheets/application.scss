@@ -170,3 +170,20 @@ body {
 	overflow: hidden;
     background-color:  #223246;
 } 
+
+
+.btn-circle.btn-sm { 
+    width: 30px; 
+    height: 30px; 
+    padding: 0px 0px; 
+    border-radius: 15px; 
+    font-size: 15px; 
+    text-align: center;
+    align-items: center;
+} 
+.follow:hover { 
+    background-color: #3D8AFF;
+} 
+.unfollow:hover { 
+    background-color: red; 
+} 
