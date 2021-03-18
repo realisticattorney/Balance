@@ -88,7 +88,23 @@ end
 def authorized_edit?(recipe)
   if policy(recipe).edit?
     link_to('Destroy', recipe, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-twitter align-self-center')
+  else
+    like_button(recipe)  
   end
+end
+
+def who_to_follow(user)
+  unless current_user.id == user.id || current_user.following?(user)
+    render 'recipes/rightbar', user: user
+  end
+end
+
+def followed_by(user, other_user)
+  if other_user.following?(user)
+    unless other_user == current_user
+      render 'users/rightbar_user', user: other_user
+  end
+end
 end
 
 end

@@ -13,4 +13,5 @@
         %h5.pl-1
           Who to Follow
         .sidebar-header.pl-1
-          = render 'recipes/rightbar'
+          - @users.each do |user|
+            = who_to_follow(user)

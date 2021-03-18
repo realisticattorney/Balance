@@ -18,9 +18,5 @@
       .row
         = time_ago_in_words(recipe.created_at)
       .row
-        - if policy(recipe).edit?
-          %small
-            = link_to 'Destroy', recipe, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-twitter align-self-center'
-        - else 
-          = like_button(recipe)
+        = authorized_edit?(recipe)
 
