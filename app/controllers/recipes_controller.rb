@@ -1,28 +1,23 @@
 class RecipesController < ApplicationController
   before_action :set_recipe, only: %i[ show edit update destroy ]
 
-  # GET /recipes or /recipes.json
   def index
     @recipes = Recipe.includes([:user], user: :avatar_photo_attachment, user:{avatar_photo_attachment: :blob}).all.order(created_at: :desc)
     @users = User.all.order(created_at: :desc)
     
   end
 
-  # GET /recipes/1 or /recipes/1.json
   def show
   end
 
-  # GET /recipes/new
   def new
     @recipe = Recipe.new
   end
 
-  # GET /recipes/1/edit
   def edit
     authorize @recipe
   end
 
-  # POST /recipes or /recipes.json
   def create
     @recipe = Recipe.new(recipe_params)
     @recipe.user = current_user

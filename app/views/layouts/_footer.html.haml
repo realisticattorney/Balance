@@ -6,7 +6,7 @@
         = link_to 'Home', root_path
         .row
         About us
-      .col-md-4
+      .col-md-3
         Privacy policy
         .row
         Terms and conditions
@@ -16,13 +16,19 @@
         Help and Support
         .row
         Blog
-      .col-md-4
+        .row
+        %br
+      .col-md-3
         Copyright
         © 
         = Time.now.year
-        Twitter
+        .row
+        %br
         .row
         .fa.fa-envelope
         = mail_to 'g.axl.aquila@gmail.com'
-
+      .col-md-2
+        %b.pl-5
+          BALANCE
+          .fas.fa-egg.fa-lg.pl-2
 %br
