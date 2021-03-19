@@ -68,9 +68,9 @@ end
 
 gem 'active_storage_validations'
 gem 'aws-sdk-s3', require: false
+gem 'bootstrap', '~> 5.0.0.beta1'
+gem 'coffee-rails', '~> 4.2'
 gem 'factory_bot'
 gem 'gravatar_image_tag'
 gem 'gravtastic'
 gem 'unsplash'
-gem 'bootstrap', '~> 5.0.0.beta1'
-gem 'coffee-rails', '~> 4.2'
