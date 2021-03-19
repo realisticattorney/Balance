@@ -21,9 +21,9 @@ module ApplicationHelper
     like = Like.find_by(recipe: recipe, user: current_user)
     if like
       link_to('Dislike!', recipe_like_path(id: like.id, recipe_id: recipe.id), method: :delete,
-                                                                               class: 'btn btn-twitter align-self-center')
+                                                                               class: 'btn btn-light align-self-center')
     else
-      link_to('Like!', recipe_likes_path(recipe_id: recipe.id), method: :post, class: 'btn btn-danger align-self-center')
+      link_to('Like!', recipe_likes_path(recipe_id: recipe.id), method: :post, class: 'btn btn-primary  text-light align-self-center')
     end
   end
 
@@ -62,7 +62,7 @@ module ApplicationHelper
   def authorized_edit?(recipe)
     if policy(recipe).edit?
       link_to('Destroy', recipe, method: :delete, data: { confirm: 'Are you sure?' },
-                                 class: 'btn btn-twitter align-self-center')
+                                 class: 'btn btn-light   align-self-center')
     else
       like_button(recipe)
     end
