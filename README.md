@@ -1,6 +1,6 @@
-# Capstone Project: Balance. A social media app to share and learn about nutrition and a healthy lifestyle 
+# Capstone Project: Balance. A social media app to share recipes and ideas that leads to a healthier lifestyle.
 
-> This repo includes intial code for social media app with basic styling. Its purpose is to be a starting point for Microverse students.
+This is the MVP of the project. Its UI resembles Twitter a lot, and it shares with it a feed of posts in he home page, a following feature, including a "who to follow" suggestion list, and a "followed by" list on users profile with all the people already following that user. You can also like other people's posts (called recipes). You must upload an avatar picture and a cover image in order to sign up. 
 
 ## Built With
 
@@ -9,7 +9,7 @@
 
 ### Live Demo
 
-<a href="https://salty-ravine-74049.herokuapp.com/">Visit Page</a>
+<a href="https://balance.herokuapp.com/">Visit Page</a>
 
 ## Getting Started
 

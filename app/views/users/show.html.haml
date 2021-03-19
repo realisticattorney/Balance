@@ -14,7 +14,7 @@
       %h5.pt-5.pl-2
         Recipes
     .row.mr-4
-      = is_current_user?(@user)
+      = allowed_to_post?(@user)
     - @user.recipes.each do |recipe|
       = feed(recipe, @user)
   

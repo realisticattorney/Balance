@@ -18,32 +18,31 @@ RSpec.describe User, type: :model do
   end
 end
 
-
-  context 'validation test' do
-    it 'ensures username and fullname of user is present' do
-      user = User.new(username: 'German').save
-      expect(user).to eq(false)
-    end
-
-    it 'ensures minimum length for name to be 3' do
-      user = User.new(username: 'Ger_Man', fullname: 'German Lol').save
-      expect(user).to eq(false)
-    end
-
-    it 'ensures max length for name to be 3' do
-      user = User.new(username: 'German German German German German', fullname: 'German Lol').save
-      expect(user).to eq(false)
-    end
-
-    it 'should save successfully' do
-      user = User.new(username: 'German', fullname: 'German Lol').save
-      expect(user) == true
-    end
-
-    it 'validates Username uniqueness' do
-      u = User.new(username: 'German', fullname: ' German Lol')
-      u.save
-      u2 = User.new(username: 'German', fullname: ' German Lol')
-      expect(u2.valid?).to be_falsy
-    end
+context 'validation test' do
+  it 'ensures username and fullname of user is present' do
+    user = User.new(username: 'German').save
+    expect(user).to eq(false)
   end
+
+  it 'ensures minimum length for name to be 3' do
+    user = User.new(username: 'Ger_Man', fullname: 'German Lol').save
+    expect(user).to eq(false)
+  end
+
+  it 'ensures max length for name to be 3' do
+    user = User.new(username: 'German German German German German', fullname: 'German Lol').save
+    expect(user).to eq(false)
+  end
+
+  it 'should save successfully' do
+    user = User.new(username: 'German', fullname: 'German Lol').save
+    expect(user) == true
+  end
+
+  it 'validates Username uniqueness' do
+    u = User.new(username: 'German', fullname: ' German Lol')
+    u.save
+    u2 = User.new(username: 'German', fullname: ' German Lol')
+    expect(u2.valid?).to be_falsy
+  end
+end

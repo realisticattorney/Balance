@@ -1,5 +1,5 @@
 class Recipe < ApplicationRecord
-  validates :description, presence: true, length: { :minimum => 5 }
+  validates :description, presence: true, length: { minimum: 5 }
 
   belongs_to :user
 
@@ -10,8 +10,6 @@ class Recipe < ApplicationRecord
 
   def generated_hash
     require 'securerandom'
-    @randomslug ||= persisted? ? Friendly_id : SecureRandom.hex(4)
+    @generated_hash ||= persisted? ? Friendly_id : SecureRandom.hex(4)
   end
-
-
 end

@@ -1,14 +1,12 @@
 class RecipesController < ApplicationController
-  before_action :set_recipe, only: %i[ show edit update destroy ]
+  before_action :set_recipe, only: %i[show edit update destroy]
 
   def index
-    @recipes = Recipe.includes([:user], user: :avatar_photo_attachment, user:{avatar_photo_attachment: :blob}).all.order(created_at: :desc)
+    @recipes = Recipe.includes([:user], user: { avatar_photo_attachment: :blob }).all.order(created_at: :desc)
     @users = User.all.order(created_at: :desc)
-    
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @recipe = Recipe.new
@@ -22,10 +20,10 @@ class RecipesController < ApplicationController
     @recipe = Recipe.new(recipe_params)
     @recipe.user = current_user
 
-      if @recipe.save
-        redirect_to root_path
-      else
-        redirect_to request.referrer, alert: 'Recipe was not created'
+    if @recipe.save
+      redirect_to root_path
+    else
+      redirect_to request.referrer, alert: 'Recipe was not created'
     end
   end
 
@@ -34,7 +32,7 @@ class RecipesController < ApplicationController
     authorize @recipe
     respond_to do |format|
       if @recipe.update(recipe_params)
-        format.html { redirect_to @recipe, notice: "Recipe was successfully updated." }
+        format.html { redirect_to @recipe, notice: 'Recipe was successfully updated.' }
         format.json { render :show, status: :ok, location: @recipe }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -48,19 +46,20 @@ class RecipesController < ApplicationController
     authorize @recipe
     @recipe.destroy
     respond_to do |format|
-      format.html { redirect_to recipes_url, notice: "Recipe was successfully destroyed." }
+      format.html { redirect_to recipes_url, notice: 'Recipe was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_recipe
-      @recipe = Recipe.friendly.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def recipe_params
-      params.require(:recipe).permit(:description, :avatar, :users)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_recipe
+    @recipe = Recipe.friendly.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def recipe_params
+    params.require(:recipe).permit(:description, :avatar, :users)
+  end
 end
