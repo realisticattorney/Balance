@@ -23,7 +23,7 @@ module ApplicationHelper
       link_to('Dislike!', recipe_like_path(id: like.id, recipe_id: recipe.id), method: :delete,
                                                                                class: 'btn btn-twitter align-self-center')
     else
-      link_to('Like!', recipe_likes_path(recipe_id: recipe.id), method: :post, class: 'btn align-self-center')
+      link_to('Like!', recipe_likes_path(recipe_id: recipe.id), method: :post, class: 'btn btn-danger align-self-center')
     end
   end
 

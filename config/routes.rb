@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :recipes do
+  resources :recipes, only: [:index, :show, :new, :create, :destroy] do
     resources :likes, only: [:create, :destroy]
   end
   resources :users

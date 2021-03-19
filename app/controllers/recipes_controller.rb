@@ -12,10 +12,6 @@ class RecipesController < ApplicationController
     @recipe = Recipe.new
   end
 
-  def edit
-    authorize @recipe
-  end
-
   def create
     @recipe = Recipe.new(recipe_params)
     @recipe.user = current_user
@@ -27,21 +23,6 @@ class RecipesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /recipes/1 or /recipes/1.json
-  def update
-    authorize @recipe
-    respond_to do |format|
-      if @recipe.update(recipe_params)
-        format.html { redirect_to @recipe, notice: 'Recipe was successfully updated.' }
-        format.json { render :show, status: :ok, location: @recipe }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @recipe.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # DELETE /recipes/1 or /recipes/1.json
   def destroy
     authorize @recipe
     @recipe.destroy
@@ -53,12 +34,10 @@ class RecipesController < ApplicationController
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_recipe
     @recipe = Recipe.friendly.find(params[:id])
   end
 
-  # Only allow a list of trusted parameters through.
   def recipe_params
     params.require(:recipe).permit(:description, :avatar, :users)
   end
