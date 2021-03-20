@@ -1,0 +1,12 @@
+.container
+  = form_for(Recipe.new, :url => { :action => "create", :controller=>"recipes", :id=> current_user.id })  do |form|
+    %p.pl-4.mb-1.ml-3.pt-3
+      Say something
+    .row.justify-content-center
+      .col-11.pt-0
+        = form.text_field :description, class: 'form-control', placeholder: 'Add new Recipe'
+    .row.justify-content-end
+      .col-3.pt-3.mr-4.mb-3
+        .form-actions
+          = form.submit 'Post New Recipe', method: :post, class: 'btn btn-primary'
+

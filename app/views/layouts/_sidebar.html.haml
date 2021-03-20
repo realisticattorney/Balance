@@ -1,0 +1,31 @@
+- if signed_in? 
+  %nav#sidebar
+    .sidebar-header
+      %h6
+        = image_tag avatar_for(current_user), height: "64px", width: "64px", class: "rounded-circle" 
+        %b.pl-2
+          = link_to current_user.fullname, user_path(current_user)
+    .row     
+      .pl-5.pr-3.py-2.border-r-2
+        %h5.px-4.ml-1
+          %strong
+            = current_user.followers.count
+        Followers
+      .pl-3.py-2.border-r-2
+        %h5.pl-4.ml-1
+          %strong
+            = current_user.followed_users.count 
+        Following
+    %p.align-self-bottom
+      = render 'layouts/messages'       
+
+    .sidebar-header
+    %ul.list-unstyled.components
+      %li.active
+        %a{:href => root_path}
+          .fa.fa-home 
+          %b Home
+      %li
+        = link_to edit_user_registration_path, class: "dropdown-item" do
+          .fa.fa-cog.fa-lg
+          %b Edit Profile

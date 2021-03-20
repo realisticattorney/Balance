@@ -1,0 +1,22 @@
+.row.bg-white.mr-5.mt-5
+  = render 'recipes/recipe_from_index'
+%br
+
+- @recipes.each do |recipe|
+  .row.bg-white.mr-5.py-4
+    .col-1.ml-2
+      = image_tag avatar_for(recipe.user), height: "50px", width: "50px", class: "rounded-circle"
+    .col-8.ml-3
+      .row
+        %h6
+          = link_to recipe.user.fullname, user_path(recipe.user)
+          %small
+            = link_to "@" + recipe.user.username, user_path(recipe.user)
+      .row
+        %p= recipe.description
+    .col-2
+      .row
+        = time_ago_in_words(recipe.created_at)
+      .row
+        = authorized_edit?(recipe)
+

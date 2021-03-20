@@ -1,0 +1,30 @@
+.row
+  %aside.span4
+    %section
+
+.container-fluid.d-flex
+  .col-9
+    .row
+      = image_tag @user.cover_photo, height: "200px", width: "766px"
+    .row 
+      .card-columns.border-bottom-0
+        .rectangle-5
+        .rectangle-42
+    .row
+      %h5.pt-5.pl-2
+        Recipes
+    .row.mr-4
+      = allowed_to_post?(@user)
+    - @user.recipes.each do |recipe|
+      = feed(recipe, @user)
+  
+  .col-3.ml-1
+    = user_profile_stats(@user)
+    .row.py-3
+      %nav
+        %h5.pl-1
+          Followed by
+        .sidebar-header
+          - @users.each do |user|
+            = followed_by(@user, user)
+  

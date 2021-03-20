@@ -1,0 +1,12 @@
+.row.py-3
+  .col-3
+    = image_tag user.avatar_photo, height: "60x", width: "60px"
+  .col-6
+    .row
+      %h5.pl-4
+        = link_to user.username, user_path(user), class: 'profile-link'
+    .row
+      %h6.pl-4
+        = user.fullname
+  .col-3
+    = relationship_button(user, current_user)

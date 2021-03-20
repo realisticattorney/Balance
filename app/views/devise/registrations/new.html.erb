@@ -1,0 +1,17 @@
+<h2>Sign up</h2>
+<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= f.error_notification %>
+  <div class="form-inputs">
+    <%= f.input :email, required: true, autofocus: true,     input_html: { autocomplete: "email" }  %>
+    <%= f.input :username, required: false, autofocus: true, hint: "6 characters at minimum",   input_html: { autocomplete: "username" }  %>
+    <%= f.input :fullname, required: false, autofocus: true,  hint: "6 characters at minimum",  input_html: { autocomplete: "fullname" }  %>
+    <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), input_html: { autocomplete: "new-password" }                    %>
+    <%= f.input :password_confirmation, required: true,      input_html: { autocomplete: "new-password" }  %>
+    <br><br>
+    
+  <div class="form-actions btn btn-primary">
+    <%= f.button :submit, "Sign up" %>
+  </div>
+     <h4>To set your own avatar and cover photos go to account setting after sign up</h5>
+<% end %>
+<%= render "devise/shared/links" %>

@@ -1,0 +1,184 @@
+/*
+    ADDITIONAL DEMO STYLE, NOT IMPORTANT TO MAKE THINGS WORK BUT TO MAKE IT A BIT NICER :)
+*/
+@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+
+.wrapper {
+  display: flex;
+  width: 100%;
+  align-items: stretch;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: #f5f6f8;
+  margin: 0 0 200px;
+}
+
+p {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.1em;
+  font-weight: 300;
+  line-height: 1.7em;
+  color: #999;
+}
+
+a {
+  color: #000;
+}
+
+ul ul a {
+  font-size: 0.9em !important;
+  padding-left: 30px !important;
+  background: #6d7fcc;
+}
+
+a:hover {
+  color: inherit;
+  background-color: inherit;
+  text-decoration: underline;
+}
+
+a:hover,
+a:focus {
+  color: inherit;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+#sidebar {
+  background: #223246;
+  color: #667c90;
+  transition: all 0.3s;
+  min-width: 250px;
+  max-width: 250px;
+  min-height: 100vh;
+  position: fixed;
+}
+
+.bg-twitter {
+  background: #53abeb;
+}
+
+.btn-twitter {
+  background: #53abeb;
+  color: white;
+}
+
+.btn-twitter:hover {
+  background: red;
+  color: white;
+}
+
+#sidebar .sidebar-header {
+  padding: 20px;
+  background: #223246;
+}
+
+#sidebar ul.components {
+  padding: 20px 0;
+}
+
+#sidebar ul p {
+  color: #fff;
+  padding: 10px;
+}
+
+#sidebar ul li a {
+  padding: 10px;
+  font-size: 1.1em;
+  display: block;
+}
+
+#sidebar ul li a:hover {
+  color: #6d7fcc;
+  background: #fff;
+}
+
+#sidebar ul li.active > a,
+a[aria-expanded="true"] {
+  color: #fff;
+  background: #53abeb;
+}
+
+.bg-twittergrey {
+  background: #f5f6f8;
+}
+
+.rectangle-41 {
+  position: absolute;
+  width: 100px;
+  height: 4px;
+  left: 0;
+  top: 40px;
+  background: #53abeb;
+}
+
+.rectangle-4 {
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  right: 10px;
+  top: 43px;
+  background: rgb(199, 199, 199);
+}
+
+.rectangle-42 {
+  position: absolute;
+  width: 100px;
+  height: 4px;
+  left: 0;
+  top: 280px;
+  background: #53abeb;
+}
+
+.rectangle-5 {
+  position: absolute;
+  width: 95%;
+  height: 1px;
+  right: 10px;
+  top: 280px;
+  background: rgb(199, 199, 199);
+}
+
+.rectangle-6 {
+  position: absolute;
+  width: 1px;
+  height: 1000px;
+  right: 10px;
+  background: rgb(199, 199, 199);
+}
+
+//footer always on the bottom
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+.footer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  //height: 200px;
+  width: 100%;
+  overflow: hidden;
+  background-color: #223246;
+}
+
+.btn-circle.btn-sm {
+  width: 30px;
+  height: 30px;
+  padding: 0 0;
+  border-radius: 15px;
+  font-size: 15px;
+  text-align: center;
+  align-items: center;
+}
+
+.follow:hover {
+  background-color: #53abeb;
+}
+
+.unfollow:hover {
+  background-color: yellow;
+}

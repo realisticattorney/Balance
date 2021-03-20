@@ -1,0 +1,26 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title Balance
+    %meta{:content => "width=device-width,initial-scale=1", :name => "viewport"}/
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+    = stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    
+  %body
+    .container-fluid
+      .row.h-100
+        .col-2.grid-left.p-0
+          = signed
+        .col-10
+          .row
+            .col-12.p-0
+              = render 'layouts/header'
+          .row
+            .col-12.border.border-left-0.border-bottom-0.p-0.bg-twittergrey
+              .container
+                = yield
+    = render 'layouts/footer'

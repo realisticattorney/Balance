@@ -1,0 +1,17 @@
+.container-fluid.d-flex.pt-2
+  .col-9.pt-2
+    .row 
+      .card-columns.border-bottom-0
+        .rectangle-4
+        .rectangle-41
+        .rectangle-6
+        %h5 Recipes
+    = render 'recipes/main'
+  .col-3.pt-2
+    .row
+      %nav
+        %h5.pl-1
+          Who to Follow
+        .sidebar-header.pl-1
+          - @users.each do |user|
+            = who_to_follow(user)
