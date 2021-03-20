@@ -1,10 +1,8 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  after_commit :add_default_cover, on: [:create, :update]
-  after_commit :add_default_avatar, on: [:create, :update]
-
-
+  after_commit :add_default_cover, on: %i[create update]
+  after_commit :add_default_avatar, on: %i[create update]
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
@@ -54,17 +52,21 @@ class User < ApplicationRecord
   include Gravtastic
   gravtastic
 
-
   private
 
+  # rubocop:disable Style/GuardClause
   def add_default_cover
     unless cover_photo.attached?
-      self.cover_photo.attach(io: File.open(Rails.root.join('spec', 'fixtures', 'files', '600x200.jpeg')), filename: '600x200.jpeg', content_type: 'image/jpeg')
+      cover_photo.attach(io: File.open(Rails.root.join('spec', 'fixtures', 'files', '600x200.jpeg')),
+                         filename: '600x200.jpeg', content_type: 'image/jpeg')
     end
   end
+
   def add_default_avatar
     unless avatar_photo.attached?
-      self.avatar_photo.attach(io: File.open(Rails.root.join('spec', 'fixtures', 'files', '200x200.jpeg')), filename: '200x200.jpeg', content_type: 'image/jpeg')
+      avatar_photo.attach(io: File.open(Rails.root.join('spec', 'fixtures', 'files', '200x200.jpeg')),
+                          filename: '200x200.jpeg', content_type: 'image/jpeg')
     end
-end
+  end
+  # rubocop:enable Style/GuardClause
 end

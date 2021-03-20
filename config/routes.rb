@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: { registrations: "registrations" }
   resources :recipes, only: [:index, :show, :new, :create, :destroy] do
     resources :likes, only: [:create, :destroy]
   end
