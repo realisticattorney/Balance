@@ -9,10 +9,6 @@ class UsersController < ApplicationController
     @follow = Relationship.new
   end
 
-  def index
-    @users = User.all.order(created_at: :desc)
-  end
-
   def following
     @title = 'Following'
     @user = User.find(params[:id])

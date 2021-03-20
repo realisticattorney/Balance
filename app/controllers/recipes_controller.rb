@@ -3,7 +3,7 @@ class RecipesController < ApplicationController
 
   def index
     @recipes = Recipe.includes([:user], user: { avatar_photo_attachment: :blob }).all.order(created_at: :desc)
-    @users = User.all.order(created_at: :desc)
+    @users = User.all.order(created_at: :desc).with_attached_avatar_photo
   end
 
   def show; end

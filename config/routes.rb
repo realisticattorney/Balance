@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :recipes, only: [:index, :show, :new, :create, :destroy] do
     resources :likes, only: [:create, :destroy]
   end
-  resources :users
+  resources :users, only: [:new, :create, :destroy, :update, :show, :edit]
   resources :relationships, only: [:create, :destroy]
 
   resources :users do

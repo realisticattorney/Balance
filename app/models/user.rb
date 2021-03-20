@@ -1,6 +1,11 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  after_commit :add_default_cover, on: [:create, :update]
+  after_commit :add_default_avatar, on: [:create, :update]
+
+
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
@@ -21,12 +26,12 @@ class User < ApplicationRecord
   has_many :followers, through: :reverse_relationships, source: :follower
 
   has_one_attached :avatar_photo
-  validates :avatar_photo, attached: true,
+  validates :avatar_photo, attached: false,
                            content_type: ['image/png', 'image/jpg', 'image/jpeg'],
                            size: { less_than: 300.kilobytes, message: 'size should be under 300 kilobytes' }
 
   has_one_attached :cover_photo
-  validates :cover_photo, attached: true,
+  validates :cover_photo, attached: false,
                           content_type: ['image/png', 'image/jpg', 'image/jpeg'],
                           size: { less_than: 600.kilobytes, message: 'size should be under 600 kilobytes' }
 
@@ -48,4 +53,18 @@ class User < ApplicationRecord
 
   include Gravtastic
   gravtastic
+
+
+  private
+
+  def add_default_cover
+    unless cover_photo.attached?
+      self.cover_photo.attach(io: File.open(Rails.root.join('spec', 'fixtures', 'files', '600x200.jpeg')), filename: '600x200.jpeg', content_type: 'image/jpeg')
+    end
+  end
+  def add_default_avatar
+    unless avatar_photo.attached?
+      self.avatar_photo.attach(io: File.open(Rails.root.join('spec', 'fixtures', 'files', '200x200.jpeg')), filename: '200x200.jpeg', content_type: 'image/jpeg')
+    end
+end
 end
